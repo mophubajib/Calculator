@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:method="POST" th:object="${calculator}">
+    <label for="elementOne">First element</label>
+    <input type="text" th:field="*{elementOne}" id="elementOne"/>
+
+    <select th:field="*{operations}">
+        <option value="+">sum</option>
+        <option value="-">minus</option>
+        <option value="*">multiplication</option>
+        <option value="/">division</option>
+    </select>
+
+    <label for="elementTwo">Second element</label>
+    <input type="text" th:field="*{elementTwo}" id="elementTwo"/>
+    <input type="submit" value="solution"/>
+</form>
+
+<p th:text="${solution}"/>
+
+<!--
+<div>
+    <a th:text="${calculator.getAnswer()}"
+</div>
+-->
+
+<!--<div th:each="calculator : ${solution}">
+    <a th:text="${calculator.getElementOne()}">user</a>
+    <a th:text="${calculator.getOperations()}">user</a>
+    <a th:text="${calculator.getElementTwo()}">user</a>
+    <a>=</a>
+    <a th:text="${calculator.getAnswer()}">user</a>
+</div>-->
+
+
+</body>
+</html>
